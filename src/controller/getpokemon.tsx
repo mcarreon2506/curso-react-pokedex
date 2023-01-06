@@ -32,15 +32,17 @@ export async function getPokemons(): Promise<Pokemon[]> {
 }
 
 export function CorregirNombre(name: string): string {
+  let pokemonName: string = name;
+  
   if (name.includes("farfetch'd")) {
-    return name.replace("farfetch'd", "farfetchd");
+    pokemonName = name.replace("farfetch'd", "farfetchd");
   } else if (name.includes("mr.-mime")) {
-    return name.replace("mr.-mime", "mr-mime");
+    pokemonName = name.replace("mr.-mime", "mr-mime");
   } else if (name.includes("nidoran♀")) {
-    return name.replace("nidoran♀", "nidoran-f");
+    pokemonName = name.replace("nidoran♀", "nidoran-f");
   } else if (name.includes("nidoran♂")) {
-    return name.replace("nidoran♂", "nidoran-m");
-  } else {
-    return name;
+    pokemonName = name.replace("nidoran♂", "nidoran-m");
   }
+
+  return pokemonName;
 }
